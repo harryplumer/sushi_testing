@@ -5,9 +5,11 @@
   <%= f.text_field :name, required: true, autofocus: true, placeholder: "Roll Name"%>
 
   <%= f.label :price %>
-  <%= f.number :price, required: true, placeholder: "0"%>
+  <%= f.number_field :price, required: true, placeholder: "0"%>
   <p>Because we are a fancy restaurant, we do not allow decimal pricing</p>
 
   <%= f.label :spicy %>
   <%= f.check_box :spicy %>
+
+  <%= f.submit %>
 <% end %>

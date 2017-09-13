@@ -1,7 +1,7 @@
 class SushiRoll < ApplicationRecord
   belongs_to :user
 
-  validates_presence_of :name, :price, :spicy
+  validates_presence_of :name, :price
 
   # Instance Methods
   def is_too_expensive?

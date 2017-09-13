@@ -1,43 +1,52 @@
 class SushiRollsController < ApplicationController
- before_action :set_rolls, except: [:index, :new, :create]
+ before_action :set_roll, except: [:index, :new, :create]
 
   def index
     @rolls = current_user.sushi_rolls
   end
 
-  def show
-  end
-
   def new
-    render :form
+    @roll = current_user.sushi_rolls.new
+    render partial: "form"
   end
 
   def create
-    @rolls = Sushi_roll.new(sushi_roll_params)
-    if @sushi_roll.save
-      redirect_to @sushi_roll, notice: 'Sushi created!'
+    @roll = current_user.sushi_rolls.new(sushi_roll_params)  
+    if @roll.save
+      redirect_to sushi_rolls_url, notice: 'Sushi created!'
     else
-      render :new
+      render partial: "form"
     end
   end
 
   def edit
+    render partial: "form"
   end
 
   def update
+    if @roll.update(sushi_roll_params)
+      redirect_to sushi_rolls_url, notice: 'Sushi Roll was successfully updated.'
+    else
+      render partial: "form"
+    end
   end
 
   def destroy
-    @rolls.destroy
-    redirect_to sushi_roll_url, notice: 'Sushi roll destroyed.'
+    @roll.destroy
+    redirect_to sushi_rolls_url, notice: 'Sushi roll destroyed.'
   end
 
   private
-    def set_rolls
-      @rolls = current_user.rolls.find(params[:id])
+    def set_roll
+      @roll = current_user.sushi_rolls.find(params[:id])
     end
 
-    def rolls_params
-      params.require(:rolls).permit(:name, :price, :spicy)
+    def sushi_roll_params
+      params.require(:sushi_roll).permit(:name, :price, :spicy)
+    end
+
+    def render_error
+      errors = roll.errors.full_messages.join(",")
+      render json: {errors: errors}, status: 418
     end
 end

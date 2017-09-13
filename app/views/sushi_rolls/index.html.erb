@@ -2,17 +2,17 @@
 <h2>Your Current Rolls</h2>
 <table>
   <thead>
-    <tr><th>Roll</th><th>Price</th><th>Spicy?</th><th>Edit</th><th>Delete</th>
+    <tr><th>Roll</th><th>Price</th><th>Edit</th><th>Delete</th>
   </thead>
   <tbody>
     <% total = 0 %>
-    <% @roll.each do |roll| %>
+    <% @rolls.each do |roll| %>
       <tr>
         <td><%= roll.name %></td>
         <td>$<%= roll.price %></td>
         <td><%= roll.spicy ? "Spicy!" : "" %></td>
-        <td><%= link_to edit_sushi_roll_path(roll) %></td>
-        <td><%= link_to roll, method: :delete %>
+        <td><%= link_to "Edit", edit_sushi_roll_path(roll) %></td>
+        <td><%= link_to "Delete", roll, method: :delete %>
       </tr>
       <% total += roll.price %>
     <% end %>
@@ -21,3 +21,4 @@
     <tr><td colspan=5><strong>Your Total: $<%= total %></strong></td></tr>
   </tfoot>
 </table>
+<%= link_to "Add New Roll", new_sushi_roll_path %>
