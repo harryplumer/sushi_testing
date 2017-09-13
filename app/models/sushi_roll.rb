@@ -13,10 +13,6 @@ class SushiRoll < ApplicationRecord
     where("spicy = true")
   end
 
-  def self.not_spicy
-    where("spicy = false")
-  end
-
   def self.by_price
     order(:price)
   end
