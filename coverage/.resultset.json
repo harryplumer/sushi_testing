@@ -470,7 +470,7 @@
       "/Users/mattsnow/Documents/devpoint/week_5/sushi_testing/spec/factories/users.rb": [
         1,
         1,
-        2,
+        0,
         null,
         null,
         1,
@@ -530,7 +530,7 @@
         null,
         null,
         1,
-        2,
+        0,
         null,
         null,
         null,
@@ -548,6 +548,6 @@
         null
       ]
     },
-    "timestamp": 1505339821
+    "timestamp": 1505341066
   }
 }
