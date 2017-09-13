@@ -1,5 +1,9 @@
 {
   "result": {
+<<<<<<< HEAD
     "covered_percent": 90.0
+=======
+    "covered_percent": 97.44
+>>>>>>> controller specs finished
   }
 }

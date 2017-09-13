@@ -44,9 +44,5 @@ class SushiRollsController < ApplicationController
     def sushi_roll_params
       params.require(:sushi_roll).permit(:name, :price, :spicy)
     end
-
-    def render_error
-      errors = roll.errors.full_messages.join(",")
-      render json: {errors: errors}, status: 418
-    end
+    
 end
