@@ -1,0 +1,2 @@
+module SushiRollsHelper
+end
